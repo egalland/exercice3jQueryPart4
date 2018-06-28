@@ -1,0 +1,71 @@
+<!-- Créer un formulaire qui demande le nom, le prénom, l'adresse mail et le numéro de téléphone de l'utilisateur.
+Verifier que l'adresse mail est bien une adresse mail,
+vérifier que le numéro de téléphone ne comporte que des chiffres,
+et que le nom et le prénom ne contiennent que des lettres ou des tirets. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <title>Exercice 3</title>
+</head>
+<body>
+  <form>
+    <ul>
+      <li>
+        <label for="lastname">Nom : </label>
+        <input type="text" name="formRegex" id="lastname" />
+      </li>
+      <li>
+        <label for="firstname">Prénom : </label>
+        <input type="text" name="formRegex" id="firstname" />
+      </li>
+      <li>
+        <label for="mail">Adresse mail : </label>
+        <input type="mail" name="formRegex" id="mail" />
+      </li>
+      <li>
+        <label for="phoneNumber">Numéro de téléphone : </label>
+        <input type="text" name="formRegex" id="phoneNumber" />
+      </li>
+      <li>
+        <button type="button" id="regexFormButton" style="height: 80px; width: 150px;">Valider</button>
+      </li>
+    </ul>
+  </form>
+  <script>
+  var regexLastFirstname = /^[a-zA-Z\-àèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]+$/;
+  var regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
+  var regexPhoneNumber = /^[\d]{10}$/;
+
+  $('#regexFormButton').click(function(){
+
+    lastname = $('#lastname').val();
+    firstname = $('#firstname').val();
+    mail = $('#mail').val();
+    phoneNumber = $('#phoneNumber').val();
+
+    if(lastname.match(regexLastFirstname)){
+      console.log('lastname ok');
+    }else{
+      console.log('lastname pas ok');
+    }
+    if (firstname.match(regexLastFirstname)) {
+      console.log('firstname ok');
+    }else{
+      console.log('first pas ok');
+    }
+    if (mail.match(regexMail)) {
+      console.log('mail ok');
+    }else{
+      console.log('mail pas ok');
+    }
+    if (phoneNumber.match(regexPhoneNumber)) {
+      console.log('téléphone ok');
+    }else{
+      console.log('téléphone pas ok');
+    }
+  });
+  </script>
+</body>
+</html>
